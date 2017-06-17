@@ -1,0 +1,2 @@
+# sgsi
+static web
