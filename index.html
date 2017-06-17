@@ -23,9 +23,14 @@
 			<li><input type="button" onclick="cerrar_sesion()" value="CERRAR SESION"></li>
 		</ul>
 	</div>
-	<div id="loader"></div>
+	<div id="content"></div>
 <script>
-
+	function load_ingreso_activos() {
+		document.getElementById("content").innerHTML='<object type="text/html" data="./html/ingreso_activos/ingreso_activos.html" ></object>';
+	}
+	function load_modifica_activos() {
+		document.getElementById("content").innerHTML='<object type="text/html" data="./html/modifica_activos/modifica_activos.html" ></object>';
+	}
 </script>
 </body>
 </html>

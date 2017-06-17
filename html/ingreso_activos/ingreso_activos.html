@@ -4,6 +4,75 @@
 </head>
 <body>
 	<h1>ACTIVO</h1>
-	<FORM></FORM>
+	<FORM>
+		<label>Nombre :</label><input id="input_nombre" type="text" value="">
+		<br />
+		<label>Descripcion :</label><input id="input_descripcion" type="textarea" value="">
+		<br />
+		<label>Propietario :</label>
+		<select>
+			<option>Analista 1</option>
+			<option>Analista 2</option>
+			<option>Analista 3</option>
+			<option>Analista 4</option>
+		</select>
+		<br />
+		<label>Tipo: </label>
+		<select id="select_tipo">
+			<option value="S">Software</option>
+			<option value="H">Hardware</option>
+			<option value="I">Informacion</option>
+			<option value="V">Servicios</option>
+			<option value="R">RR.HH.</option>
+		</select>
+		<br />
+		<label>Categoria :</label>
+		<select id="select_categoria">
+			<option value="I">Inmueble</option>
+			<option value="P">Personal</option>
+			<option value="E">Equipo</option>
+			<option value="A">Aplicaciones</option>
+			<option value="D">Documentos</option>
+			<option value="T">Datos</option>
+		</select>
+		<br />
+		<label>Valoracion</label>
+		<select id="select_valoracion">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br /><br />
+		<input type="button" value="Grabar" onclick="grabar();">
+		<input type="button" value="Cancelar">
+	</FORM>
+<script>
+	var contador = 0;
+	function grabar() {
+		var nombre = document.getElementById("input_nombre").value;
+		var descripcion = document.getElementById("input_descripcion").value;
+		var codigo;
+
+		if(nombre.length != 0 && descripcion.length != 0) {
+			codigo = document.getElementById("select_tipo").value;
+			codigo += document.getElementById("select_categoria").value;
+			codigo += getContador();
+			alert("Nombre "+nombre+"\nDescripcion "+descripcion+"\nCodigo: " + codigo + "\nSe guardaron los datos.");	
+		} else {
+			alert("Debe llenar todos los campos antes de grabar");
+		}
+		
+	}
+	function getContador() {
+		contador++;
+		if(contador < 10) {
+			return "0" + contador;
+		} else if (contador < 100) {
+			return contador.toString();
+		}
+	}
+</script>
 </body>
 </html>
