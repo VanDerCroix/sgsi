@@ -4,13 +4,11 @@
 </head>
 <body>
 	<h1>SGSI</h1>
-	<div id="header">HEADER</div>
+	<div id="header"></div>
 	<div>
-		<ul>
-			<li><input type="button" value="REPORTES"></li>
-			<li><input type="button" value="METRICAS"></li>
-			<li><input type="button" value="MATRIZ DE RIESGOS"></li>
-		</ul>
+		<input type="button" value="REPORTES">
+		<input type="button" value="METRICAS">
+		<input type="button" value="MATRIZ DE RIESGOS">
 	</div>
 	<div>
 		<ul>
@@ -24,12 +22,13 @@
 		</ul>
 	</div>
 	<div id="content"></div>
+
 <script>
 	function load_ingreso_activos() {
-		document.getElementById("content").innerHTML='<object type="text/html" data="./html/ingreso_activos/ingreso_activos.html" ></object>';
+		document.getElementById("content").innerHTML='<object type="text/html" data="./html/ingreso_activos/ingreso_activos.html" style="width:500px;height:500px;" ></object>';
 	}
 	function load_modifica_activos() {
-		document.getElementById("content").innerHTML='<object type="text/html" data="./html/modifica_activos/modifica_activos.html" ></object>';
+		document.getElementById("content").innerHTML='<object type="text/html" data="./html/modifica_activos/modifica_activos.html" style="width:500px;height:500px;" ></object>';
 	}
 </script>
 </body>

@@ -1,0 +1,106 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>ACTIVOS</h1>
+	<div>
+		<h3>Buscar por tipo</h3>
+		<select id="select_tipo">
+			<option value="S">Software</option>
+			<option value="H">Hardware</option>
+			<option value="I">Informacion</option>
+			<option value="V">Servicios</option>
+			<option value="R">RR.HH.</option>
+		</select>
+	</div>
+	
+	<div>
+		<h3>Buscar por Categoria</h3>
+		<select id="select_categoria">
+			<option value="I">Inmueble</option>
+			<option value="P">Personal</option>
+			<option value="E">Equipo</option>
+			<option value="A">Aplicaciones</option>
+			<option value="D">Documentos</option>
+			<option value="T">Datos</option>
+		</select>
+	</div>
+
+	<div>
+		<input type="button" value="BUSCAR">
+		<input type="button" value="LIMPIAR">	
+	</div>
+
+	<br /><br />
+
+	<table id="tabla_activos">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Codigo</th>
+				<th>Nombre</th>
+				<th>Desc.</th>
+				<th>Prop.</th>
+				<th>Tipo</th>
+				<th>Categ.</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>SA01</td>
+				<td><p>qwe</p></td>
+				<td><p>qwe qwe</p></td>
+				<td><p>Admin 1</p></td>
+				<td><p>Software</p></td>
+				<td><p>Aplicaciones</p></td>
+				<td><input type="button" value="Edit" onclick="edit_row(this)"></td>
+				<td><input type="button" value="Delete" onclick="delete_row(this)"></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>HE02</td>
+				<td><p>asd</p></td>
+				<td><p>asd asd</p></td>
+				<td><p>Admin 3</p></td>
+				<td><p>Hardware</p></td>
+				<td><p>Equipos</p></td>
+				<td><input type="button" value="Edit" onclick="edit_row(this)"></td>
+				<td><input type="button" value="Delete" onclick="delete_row(this)"></td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>RP03</td>
+				<td><p>zxc</p></td>
+				<td><p>zxc zxc</p></td>
+				<td><p>Admin 2</p></td>
+				<td><p>RR.HH.</p></td>
+				<td><p>Personal</p></td>
+				<td><input type="button" value="Edit" onclick="edit_row(this)"></td>
+				<td><input type="button" value="Delete" onclick="delete_row(this)"></td>
+			</tr>
+		</tbody>
+	</table>
+<script>
+function edit_row(r) {
+	//dar estilo a las celdas que se vuelven editables
+	var fila = r.parentNode.parentNode;
+	for (var i = 2; i < 7; i++) {
+		fila.cells[i].childNodes[0].contentEditable = true;
+	};
+
+	//para propositos de desarrollo unicamente
+    var c1 = fila.cells[2].childNodes[0];
+    c1.focus();
+    alert("las columnas nombre, desc, prop, tipo y categ ahora se pueden editar	");
+}
+function delete_row(r) {
+	var i = r.parentNode.parentNode.rowIndex;
+	document.getElementById("tabla_activos").deleteRow(i);
+}
+</script>
+</body>
+</html>
