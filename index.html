@@ -6,13 +6,13 @@
 	<h1>SGSI</h1>
 	<div id="header"></div>
 	<div>
-		<input type="button" value="REPORTES">
+		<input type="button" onclick="load_ptr()" value="PTR (vista IV)">
 		<input type="button" value="METRICAS">
 		<input type="button" value="MATRIZ DE RIESGOS">
 	</div>
 	<div>
 		<ul>
-			<li><input type="button" onclick="load_ingreso_activos()" value="INGRESAR ACTIVOS"></li>
+			<li><input type="button" onclick="load_ingreso_activos()" value="INGRESO DE ACTIVOS"></li>
 			<br />
 			<li><input type="button" onclick="load_modifica_activos()" value="MODIFICAR ACTIVOS"></li>
 			<br />
@@ -24,6 +24,9 @@
 	<div id="content"></div>
 
 <script>
+	function load_ptr() {
+		document.getElementById("content").innerHTML='<object type="text/html" data="./html/vista_iv/vista_iv.html" style="width:900px;height:500px;" ></object>';
+	}
 	function load_ingreso_activos() {
 		document.getElementById("content").innerHTML='<object type="text/html" data="./html/ingreso_activos/ingreso_activos.html" style="width:500px;height:500px;" ></object>';
 	}
