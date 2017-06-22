@@ -60,9 +60,23 @@
 				<td>Aplicaciones</td>
 				<td>No se realiza el cambio...</td>
 				<td>Ingreso al correo...</td>
-				<td>Rara Vez</td>
-				<td>Moderado</td>
-				<td>Bajo</td>
+				<td>
+					<select id="select_freq_1" oninput="getValoracion(this)">
+						<option value="5">Casi Cierta</option>
+						<option value="4">Muy Probable</option>
+						<option value="3">Probable</option>
+						<option value="2">Poco Probable</option>
+						<option value="1" selected>Rara Vez</option>
+					</select></td>
+				<td>
+					<select id="select_impa_1" oninput="getValoracion(this)">
+						<option value="1">Insignificante</option>
+						<option value="2">Menor</option>
+						<option value="3" selected>Moderado</option>
+						<option value="4">Mayor</option>
+						<option value="5">Catastrófico</option>
+					</select></td>
+				<td id="valoracion_1">Bajo</td>
 				<td>Mensualmente cambiar...</td>
 			</tr>
 			<tr>
@@ -75,9 +89,23 @@
 				<td><p>Equipos</p></td>
 				<td>No sean los correctos</td>
 				<td>Las pruebas se realiza...</td>
-				<td>Ocasional</td>
-				<td>Mayor</td>
-				<td>Moderado</td>
+				<td>
+					<select id="select_freq_2" onchange="getValoracion(this)">
+						<option value="5">Casi Cierta</option>
+						<option value="4">Muy Probable</option>
+						<option value="3">Probable</option>
+						<option value="2">Poco Probable</option>
+						<option value="1" selected>Rara Vez</option>
+					</select></td>
+				<td>
+					<select id="select_impa_2" onchange="getValoracion(this)">
+						<option value="1">Insignificante</option>
+						<option value="2" selected>Menor</option>
+						<option value="3">Moderado</option>
+						<option value="4">Mayor</option>
+						<option value="5">Catastrófico</option>
+					</select></td>
+				<td id="valoracion_2">Moderado</td>
 				<td>Verificar los elementos...</td>
 			</tr>
 			<tr>
@@ -90,15 +118,44 @@
 				<td><p>Personal</p></td>
 				<td>Los datos no son correctos</td>
 				<td>Los usuarios no dan...</td>
-				<td>Rara Vez</td>
-				<td>Catastrofico</td>
-				<td>Bajo</td>
+				<td>
+					<select id="select_freq_3" onchange="getValoracion(this)">
+						<option value="5" selected>Casi Cierta</option>
+						<option value="4">Muy Probable</option>
+						<option value="3">Probable</option>
+						<option value="2">Poco Probable</option>
+						<option value="1">Rara Vez</option>
+					</select></td>
+				<td>
+					<select id="select_impa_3" onchange="getValoracion(this)">
+						<option value="1">Insignificante</option>
+						<option value="2">Menor</option>
+						<option value="3">Moderado</option>
+						<option value="4">Mayor</option>
+						<option value="5" selected>Catastrófico</option>
+					</select></td>
+				<td id="valoracion_3">Bajo</td>
 				<td>Traer data actual...</td>
 			</tr>
 		</tbody>
 	</table>
 <script>
-
+function getValoracion(node) {
+	var i = node.parentNode.parentNode.rowIndex;
+	var frequencia = document.getElementById("select_freq_"+i).value;
+	var impacto = document.getElementById("select_impa_"+i).value;
+	var v = parseInt(frequencia) * parseInt(impacto);
+	var valoracion;
+	if(v <= 6) {
+		valoracion = "Bajo";
+	}else if(v <= 16) {
+		valoracion = "Moderado";
+	}else if(v <= 25) {
+		valoracion = "Alto";
+	}
+	valoracion += " " + v;
+	document.getElementById("valoracion_"+i).innerHTML = valoracion;
+}
 </script>
 </body>
 </html>
